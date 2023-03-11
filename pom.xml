@@ -4,18 +4,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>unit-testing</artifactId>
+    <artifactId>unit-and-bdd</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
-        <junit.version>4.12</junit.version>
-        <junit.jupiter.version>5.8.2</junit.jupiter.version>
-        <junit.vintage.version>5.8.2</junit.vintage.version>
-        <junit.platform.version>1.8.2</junit.platform.version>
+        <junit.version>4.13.1</junit.version>
+        <junit.jupiter.version>5.9.2</junit.jupiter.version>
+        <junit.vintage.version>5.9.2</junit.vintage.version>
+        <junit.platform.version>1.9.2</junit.platform.version>
         <maven.compiler.plugin.version>3.10.0</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+        <cucumber.version>7.11.1</cucumber.version>
     </properties>
 
     <dependencies>
@@ -59,8 +60,21 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
+            <version>1.18.26</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- cucumber -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit.platform.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
