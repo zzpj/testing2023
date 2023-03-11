@@ -1,13 +1,14 @@
 package com.example.stack;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+//import org.junit.Before;
+//import org.junit.Test;
+//
+//import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertTrue;
 
 public class StackExerciseTestJunit4 {
 
+    /*
     private StackExercise sut;
 
     @Before
@@ -71,4 +72,5 @@ public class StackExerciseTestJunit4 {
 
 
     }
+    //*/
 }

@@ -2,9 +2,6 @@ package com.example.calculator;
 
 import java.util.stream.IntStream;
 
-/**
- * Basic calculus model class
- */
 public class Calculator {
 
     public int add(int a, int b) {
@@ -15,9 +12,7 @@ public class Calculator {
         return a - b;
     }
 
-    public int multiply(int a, int b) throws InterruptedException {
-
-        //Thread.sleep(500);
+    public int multiply(int a, int b) {
         return a * b;
     }
 
@@ -33,6 +28,6 @@ public class Calculator {
     }
 
     public boolean isPrime(int a) {
-        return !IntStream.range(2, a).anyMatch(e -> modulo(a, e) == 0);
+        return IntStream.range(2, a).noneMatch(e -> modulo(a, e) == 0);
     }
 }

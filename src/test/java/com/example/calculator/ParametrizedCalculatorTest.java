@@ -31,7 +31,7 @@ public class ParametrizedCalculatorTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/ABsum.csv", numLinesToSkip = 1, delimiter = ';')
+    @CsvFileSource(resources = "/data/ABsum.csv", numLinesToSkip = 1, delimiter = ';')
     public void shouldCheckDivibility(int a, int b, int sum) {
         assertEquals(sum, sut.add(a, b));
     }
