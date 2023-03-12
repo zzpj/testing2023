@@ -1,18 +1,17 @@
 # Unit Testing - Zadania
 
 # Zadanie 1
-Przygotuj testy z wykorzystaniem JUnita w wersji 5 dla wybranych metod z klasy `com.example.Calculator`.
-Użyj:
+Przygotuj testy jednostkowe dla wybranych metod z klasy `com.example.Calculator`. Użyj:
 - odpowiednich adnotacji
     - `@BeforeEach`
     - `@AfterEach`
     - `@BeforeAll`
     - `@AfterAll`
     - `@Test`
-- nowego API asercji
+- API asercji
     - `@assertThrow`
     - `@assertAll`
-    - `@assertTimeout` (wskazówka: `Thread.sleep(2000)`)
+    - `@assertTimeout`
 - asumpcji
     - `assumeTrue()`
     - `assumeFalse()`
