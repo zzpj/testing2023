@@ -225,12 +225,59 @@ Add to any test:
 ```
 
 ### Parametrized tests
+* `@ValueSource`:
+```java
+class FizzBuzzProblemTest {
 
+    FizzBuzzProblem fizzBuzzProblem;
+
+    @BeforeEach
+    void init() {
+        fizzBuzzProblem = new FizzBuzzProblem();
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {3, 21, 27, 33})
+    void shouldReturnFizz(int fizzNumbers) {
+        assertEquals("Fizz", fizzBuzzProblem.getFizzBuzzNumber(fizzNumbers));
+    }
+}
+```
+* `@CsvSource`:
+```java
+    @ParameterizedTest
+    @CsvSource({"Fizz,3","Buzz,5","FizzBuzz,30","4,4"})
+    void shouldReturnFizzBuzzOrNumber(String expectedValue, int number) {
+        assertEquals(expectedValue, fizzBuzzProblem.getFizzBuzzNumber(number));
+    }
+```
+
+* `@CsvFileSource`: 
+```java
+    @ParameterizedTest
+    @CsvFileSource(resources = "/data/fizzbuzz.csv", delimiter = ';', numLinesToSkip = 1)
+    void shouldReturnFizzBuzzOrNumber(int number, String expectedValue) {
+        assertEquals(expectedValue, fizzBuzzProblem.getFizzBuzzNumber(number));
+    }
+```
+* `@MethodSource`:
+```java
+    @ParameterizedTest
+    @MethodSource("testData")
+    void shouldReturnFizzBuzz(int number) {
+        assertEquals("FizzBuzz", fizzBuzzProblem.getFizzBuzzNumber(number));
+    }
+
+    static Stream<Integer> testData() {
+        return Stream.of(15,30,60);
+    }
+```
 ### Nesting
 
 ### Test Execution Order
 
 ### Repeated
+`@RepeatedTest(20)`
 
 ### Running legacy tests
 ```xml
