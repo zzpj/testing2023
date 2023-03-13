@@ -4,9 +4,9 @@ public interface UnitStackable<T> {
 
     void push(T t);
 
-    T pop() throws StackEmptyException;
+    T pop();
 
-    T top() throws StackEmptyException;
+    T top();
 
     int size();
 
