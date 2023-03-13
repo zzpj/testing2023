@@ -12,10 +12,6 @@ Przygotuj testy jednostkowe dla wybranych metod z klasy `com.example.Calculator`
     - `@assertThrow`
     - `@assertAll`
     - `@assertTimeout`
-- asumpcji
-    - `assumeTrue()`
-    - `assumeFalse()`
-    - `assumingThat()`
 - `@DisplayName`
 - `@Nested`
 - `@ParametrizedTest`
@@ -30,8 +26,8 @@ Przygotuj testy jednostkowe dla wybranych metod z klasy `com.example.Calculator`
 - `@Tag`
 
 # Zadanie 2
-Wykonaj testy jednostkowe z wykorzystaniem wyrażen regularnych dla metody która weryfikuje 
-poprawność maila (`com.example.validation.EmailValidator`). Wykorzystaj sugestie z nazw metod.
+Wykonaj testy jednostkowe z wykorzystaniem wyrażen regularnych dla metody która weryfikuje poprawność maila 
+(`com.example.validation.EmailValidator`). Wykorzystaj sugestie z nazw metod.
 
 # Zadanie 3 
-Wykonaj testy jednostkowe z klasie `com.example.tolkien.service.DataServiceTest`.
+Wykonaj testy jednostkowe w klasie `com.example.tolkien.service.DataServiceTest`.

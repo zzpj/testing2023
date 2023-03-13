@@ -232,7 +232,7 @@ Add to any test:
 
 ### Repeated
 
-## Running legacy tests
+### Running legacy tests
 ```xml
 <dependency>
     <groupId>junit</groupId>
@@ -248,7 +248,7 @@ Add to any test:
 </dependency>
 ```
 
-## Generating report
+### Generating report
 ```bash
 mvn clean verify surefire-report:report
 ```
