@@ -2,9 +2,7 @@ package com.example.bdd;
 
 import io.cucumber.java.en.*;
 
-import org.junit.jupiter.api.Assertions.*;
-
-public class StepsDefinitions {
+public class ExampleStepDefinitions {
 
     @Given("an example scenario")
     public void anExampleScenario() {

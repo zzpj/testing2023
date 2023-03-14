@@ -10,6 +10,6 @@ import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("bdd")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.example")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.example.bdd")
 public class RunCucumberTest {
 }
