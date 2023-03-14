@@ -1,7 +1,7 @@
 # BDD - Zadania
 
 ## Zadanie 1
-* Przygotuj scenariusze dla podstawowych operacji matematycznych w pliku `calculator.feature` z wykorzystaniem języka 
+* Przygotuj scenariusze dla podstawowych operacji matematycznych w pliku `calculator.feature` (i klasy `com.example.calculator.Calculator`) z wykorzystaniem języka
 Gherkin oraz frameworka Cucumber:
 ```gherkin
 Scenario: All done
@@ -14,14 +14,15 @@ Scenario: All done
 ```
 * Dla sprawdzenia poprawności metody `isPrime` wykorzystaj `Scenario Outline` wraz z przedstawieniem danych wejściowych w formie tabelarycznej (`Examples`)
 ```gherkin
-Scenario Outline: eating
-  Given there are <start> cucumbers
-  When I eat <eat> cucumbers
-  Then I should have <left> cucumbers
+  Scenario Outline: Prime check
+    Given there are some prime and non-prime numbers
+    When I check <testNumber>
+    Then I should get answer using <primeFlag>
 
-  Examples:
-    | start | eat | left |
-    |    12 |   5 |    7 |
-    |    20 |   5 |   15 |
+    Examples:
+    | testNumber | primeFlag |
+    | 5          | false     |
+    | 21         | true      |
 ```
 ## Zadanie 2
+Stwórz i zaimplementuj scenariusz (plik `timetable.feature`), który pobierze aktualny plan zajęć Twojej grupy ze strony `https://ftims.edu.p.lodz.pl/`. Skorzystaj z automatyzacji z wykorzystaniem Selenium WebDriver'a.
