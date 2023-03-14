@@ -95,6 +95,7 @@ public class StackStepDefinitions {
 ```
 
 ### Scenario Outlines
+* create `fizzbuzz.feature` file in `src/test/resources/bdd`:
 ```gherkin
 Feature: FizzBuzzProblem
 
@@ -111,6 +112,7 @@ Feature: FizzBuzzProblem
       | 15     | FizzBuzz |
 ```
 
+* create `FizzBuzzStepDefinitions` class:
 ```java
 public class FizzBuzzStepDefinitions {
 
@@ -133,3 +135,11 @@ public class FizzBuzzStepDefinitions {
     }
 }
 ```
+
+### Localization
+> https://cucumber.io/docs/gherkin/languages/
+
+### Best practise
+> https://cucumber.io/docs/gherkin/step-organization/?lang=java
+
+### Browser Automation
