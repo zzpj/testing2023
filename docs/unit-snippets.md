@@ -272,12 +272,63 @@ class FizzBuzzProblemTest {
         return Stream.of(15,30,60);
     }
 ```
-### Nesting
-
-### Test Execution Order
 
 ### Repeated
-`@RepeatedTest(20)`
+```java
+    //@RepeatedTest(10)
+    @RepeatedTest(value = 5, name = "{displayName} {currentRepetition}/{totalRepetitions}")
+    void shouldPopElementsOneByOne() {
+    }
+```
+
+### Nesting
+```java
+class UnitStackTest {
+
+    UnitStack<String> sut;
+
+    // some other tests here...
+    
+    @Nested
+    @DisplayName("after pushing an element")
+    class AfterPushing {
+
+        String anElement = "an element";
+
+        @BeforeEach
+        void pushAnElement() {
+            sut.push(anElement);
+        }
+
+        @Test
+        @DisplayName("it is no longer empty")
+        void isNotEmpty() {
+            assertFalse(sut.isEmpty());
+        }
+
+        @Test
+        @DisplayName("returns the element when popped and is empty")
+        void returnElementWhenPopped() {
+            assertEquals(anElement, sut.pop());
+            assertTrue(sut.isEmpty());
+        }
+    }
+}
+```
+
+### Test Execution Order
+```java
+//@TestMethodOrder(MethodOrderer.DisplayName.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class UnitStackTest {
+    
+    @Order(10)
+    void test1(){}
+    
+    @Order(20)
+    void test2(){}
+}
+```
 
 ### Running legacy tests
 ```xml
@@ -299,3 +350,4 @@ class FizzBuzzProblemTest {
 ```bash
 mvn clean verify surefire-report:report
 ```
+> A HTML report should be generated in: `${basedir}/target/site/surefire-report.html`.
