@@ -225,14 +225,112 @@ Add to any test:
 ```
 
 ### Parametrized tests
+* `@ValueSource`:
+```java
+class FizzBuzzProblemTest {
 
-### Nesting
+    FizzBuzzProblem fizzBuzzProblem;
 
-### Test Execution Order
+    @BeforeEach
+    void init() {
+        fizzBuzzProblem = new FizzBuzzProblem();
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {3, 21, 27, 33})
+    void shouldReturnFizz(int fizzNumbers) {
+        assertEquals("Fizz", fizzBuzzProblem.getFizzBuzzNumber(fizzNumbers));
+    }
+}
+```
+* `@CsvSource`:
+```java
+    @ParameterizedTest
+    @CsvSource({"Fizz,3","Buzz,5","FizzBuzz,30","4,4"})
+    void shouldReturnFizzBuzzOrNumber(String expectedValue, int number) {
+        assertEquals(expectedValue, fizzBuzzProblem.getFizzBuzzNumber(number));
+    }
+```
+
+* `@CsvFileSource`: 
+```java
+    @ParameterizedTest
+    @CsvFileSource(resources = "/data/fizzbuzz.csv", delimiter = ';', numLinesToSkip = 1)
+    void shouldReturnFizzBuzzOrNumber(int number, String expectedValue) {
+        assertEquals(expectedValue, fizzBuzzProblem.getFizzBuzzNumber(number));
+    }
+```
+* `@MethodSource`:
+```java
+    @ParameterizedTest
+    @MethodSource("testData")
+    void shouldReturnFizzBuzz(int number) {
+        assertEquals("FizzBuzz", fizzBuzzProblem.getFizzBuzzNumber(number));
+    }
+
+    static Stream<Integer> testData() {
+        return Stream.of(15,30,60);
+    }
+```
 
 ### Repeated
+```java
+    //@RepeatedTest(10)
+    @RepeatedTest(value = 5, name = "{displayName} {currentRepetition}/{totalRepetitions}")
+    void shouldPopElementsOneByOne() {
+    }
+```
 
-## Running legacy tests
+### Nesting
+```java
+class UnitStackTest {
+
+    UnitStack<String> sut;
+
+    // some other tests here...
+    
+    @Nested
+    @DisplayName("after pushing an element")
+    class AfterPushing {
+
+        String anElement = "an element";
+
+        @BeforeEach
+        void pushAnElement() {
+            sut.push(anElement);
+        }
+
+        @Test
+        @DisplayName("it is no longer empty")
+        void isNotEmpty() {
+            assertFalse(sut.isEmpty());
+        }
+
+        @Test
+        @DisplayName("returns the element when popped and is empty")
+        void returnElementWhenPopped() {
+            assertEquals(anElement, sut.pop());
+            assertTrue(sut.isEmpty());
+        }
+    }
+}
+```
+
+### Test Execution Order
+```java
+//@TestMethodOrder(MethodOrderer.DisplayName.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class UnitStackTest {
+    
+    @Order(10)
+    void test1(){}
+    
+    @Order(20)
+    void test2(){}
+}
+```
+
+### Running legacy tests
 ```xml
 <dependency>
     <groupId>junit</groupId>
@@ -248,7 +346,8 @@ Add to any test:
 </dependency>
 ```
 
-## Generating report
+### Generating report
 ```bash
 mvn clean verify surefire-report:report
 ```
+> A HTML report should be generated in: `${basedir}/target/site/surefire-report.html`.
