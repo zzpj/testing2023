@@ -22,9 +22,9 @@ Odpowiednio skonstruowana dokumentacja:
 
 ````gherkin
 Scenario: User add article
-  Given: User is logged in
-  When: User add new article
-  Then: Article should be displayed
+  Given User is logged in
+  When User add new article
+  Then Article should be displayed
 ````
 wykorzystująca język naturalny, dostępna dla wszystkich członków projektu, może wspierając rozwój aplikacji na różnych etapach. 
 Można omawiać ją na spotkaniach przed implementacją oraz w jej trakcie, a następnie wykorzystać w testach automatycznych i raportach. 
